@@ -1,0 +1,5 @@
+{
+	"pipeline_url": "https://github.com/GHAStVHenry/haplotypecaller_nf -r main",
+	"args": "--sampleID HCC1187 --fastqR1 dx://wdl.vs.nf:/inputs/fastqs/subsample/HCC-1187_R1.subsampled.fastq.gz --fastqR2 dx://wdl.vs.nf:/inputs/fastqs/subsample/HCC-1187_R2.subsampled.fastq.gz --ref dx://wdl.vs.nf:/inputs/ref/hs38DH.bwa-index.tar.gz --fastaIn dx://wdl.vs.nf:/inputs/ref/hs38DH.fa.gz --knownVariants dx://wdl.vs.nf:/inputs/ref/*.vcf.gz --dbsnp dx://wdl.vs.nf:/inputs/ref/Homo_sapiens_assembly38.dbsnp138.vcf.gz --outDir dx://wdl.vs.nf:/outputs/haplotypecaller/nf_dsl2/ -with-trace false -with-report false -with-timeline false -with-dag false",
+	"license": "$NXF_XPACK_LICENSE"
+}

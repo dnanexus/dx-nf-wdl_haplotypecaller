@@ -250,5 +250,6 @@ process genotype {
                 -new-qual -G StandardAnnotation \
                 -O ${sampleID}.vcf.gz \
                 -isr INTERSECTION
+        echo "This is a test modification"
         """
 }

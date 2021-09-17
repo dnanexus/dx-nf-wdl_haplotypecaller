@@ -1,5 +1,7 @@
 # GATK4 haplotypecaller comparitive pipeline
-
+## written by: Gervaise H. Henry (ghenry)
+### SoS Team
+---
 * written in WDL and Nextflow (DSL2)
 * utilizes the identical docker containers
 * utilizes the identical bash code

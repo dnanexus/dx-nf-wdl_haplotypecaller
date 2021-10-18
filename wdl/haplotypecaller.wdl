@@ -296,7 +296,7 @@ task bamIndex {
         samtools index ${bam}
     >>>
     runtime {
-        dx_instance_type: "mem1_ssd2_v2_x2"
+        dx_instance_type: "mem1_ssd2_v2_x4"
         docker: "quay.io/biocontainers/mulled-v2-0560a8046fc82aa4338588eca29ff18edab2c5aa:c17ce694dd57ab0ac1a2b86bb214e65fedef760e-0"
     }
     output {

@@ -32,9 +32,9 @@ workflow {
 }
 
 process mapping {
-    //machineType "mem2_ssd1_v2_x32"
-    cpus 32
-    memory "128GB"
+    machineType "mem2_ssd1_v2_x32"
+    //cpus 32
+    //memory "128GB"
     container "quay.io/biocontainers/bwakit:0.7.17.dev1--hdfd78af_1"
     publishDir "${params.outDir}"
     input:
@@ -61,9 +61,9 @@ process mapping {
 }
 
 process markdup {
-    //machineType "mem3_ssd2_v2_x8"
-    cpus 8
-    memory "61GB"
+    machineType "mem3_ssd2_v2_x8"
+    //cpus 8
+    //memory "61GB"
     container "quay.io/biocontainers/gatk4:4.2.0.0--0"
     publishDir "${params.outDir}"
     input:
@@ -87,9 +87,9 @@ process markdup {
 }
 
 process fastaIndex {
-    //machineType "mem1_ssd1_v2_x2"
-    cpus 2
-    memory "4GB"
+    machineType "mem1_ssd1_v2_x2"
+    //cpus 2
+    //memory "4GB"
     container "quay.io/biocontainers/mulled-v2-0560a8046fc82aa4338588eca29ff18edab2c5aa:c17ce694dd57ab0ac1a2b86bb214e65fedef760e-0"
     publishDir "${params.outDir}"
     input:
@@ -109,9 +109,9 @@ process fastaIndex {
 }
 
 process recal {
-    //machineType "mem3_ssd1_v2_x8"
-    cpus 8
-    memory "64GB"
+    machineType "mem3_ssd1_v2_x8"
+    //cpus 8
+    //memory "64GB"
     container "quay.io/biocontainers/gatk4:4.2.0.0--0"
     publishDir "${params.outDir}"
     input:
@@ -164,9 +164,9 @@ process recal {
 }
 
 process bamIndex {
-    //machineType "mem1_ssd2_v2_x4"
-    cpus 4
-    memory "8GB"
+    machineType "mem1_ssd2_v2_x4"
+    //cpus 4
+    //memory "8GB"
     container "quay.io/biocontainers/mulled-v2-0560a8046fc82aa4338588eca29ff18edab2c5aa:c17ce694dd57ab0ac1a2b86bb214e65fedef760e-0"
     publishDir "${params.outDir}"
     input:
@@ -183,9 +183,9 @@ process bamIndex {
 }
 
 process haplotypecaller {
-    //machineType "mem3_ssd1_v2_x8"
-    cpus 8
-    memory "64GB"
+    machineType "mem3_ssd1_v2_x8"
+    //cpus 8
+    //memory "64GB"
     container "quay.io/biocontainers/gatk4:4.2.0.0--0"
     publishDir "${params.outDir}"
     input:
@@ -224,9 +224,9 @@ process haplotypecaller {
 }
 
 process genotype {
-    //machineType "mem3_ssd1_v2_x8"
-    cpus 8
-    memory "64GB"
+    machineType "mem3_ssd1_v2_x8"
+    //cpus 8
+    //memory "64GB"
     container "quay.io/biocontainers/gatk4:4.2.0.0--0"
     publishDir "${params.outDir}"
     input:

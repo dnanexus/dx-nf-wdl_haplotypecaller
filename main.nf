@@ -200,6 +200,7 @@ process haplotypecaller {
         path "${sampleID}.g.vcf", emit: gvcf
     script:
         """
+        exit 1
         mkdir -p fasta
         cp ${fasta} ./fasta/
         fasta=`ls ./fasta/*.fa`

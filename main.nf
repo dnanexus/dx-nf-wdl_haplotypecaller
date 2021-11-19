@@ -33,8 +33,8 @@ workflow {
 
 process mapping {
     machineType "mem2_ssd1_v2_x32"
-    //cpus 32
-    //memory "128GB"
+    cpus 32
+    memory "256GB"
     container "quay.io/biocontainers/bwakit:0.7.17.dev1--hdfd78af_1"
     publishDir "${params.outDir}"
     input:

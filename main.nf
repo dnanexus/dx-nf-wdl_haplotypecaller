@@ -74,6 +74,7 @@ process markdup {
         path "./${sampleID}.md.bam.bai", emit: bai_md
     script:
         """
+        exit 1
         gatk --java-options "-Xmx40g -Xms6000m" \
             MarkDuplicates \
                 --INPUT ${bam} \
@@ -200,7 +201,6 @@ process haplotypecaller {
         path "${sampleID}.g.vcf", emit: gvcf
     script:
         """
-        exit 1
         mkdir -p fasta
         cp ${fasta} ./fasta/
         fasta=`ls ./fasta/*.fa`

@@ -32,7 +32,7 @@ workflow {
 }
 
 process mapping {
-    machineType "mem3_ssd3_v2_x32"
+    machineType "mem2_ssd1_v2_x32"
     //cpus 32
     //memory "256GB"
     container "quay.io/biocontainers/bwakit:0.7.17.dev1--hdfd78af_1"
@@ -61,7 +61,7 @@ process mapping {
 }
 
 process markdup {
-    machineType "mem3_ssd2_v2_x8"
+    machineType "mem3_ssd3_v2_x32"
     //cpus 8
     //memory "61GB"
     container "quay.io/biocontainers/gatk4:4.2.0.0--0"

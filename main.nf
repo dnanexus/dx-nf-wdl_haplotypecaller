@@ -32,7 +32,7 @@ workflow {
 }
 
 process mapping {
-    machineType "mem2_ssd1_v2_x32"
+    machineType "xyz"
     //cpus 32
     //memory "128GB"
     container "quay.io/biocontainers/bwakit:0.7.17.dev1--hdfd78af_1"

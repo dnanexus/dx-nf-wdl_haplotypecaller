@@ -1,0 +1,184 @@
+{
+  "name": "nf_haplotypecaller",
+  "title": "nf_haplotypecaller",
+  "summary": "Nextflow haplotypecaller pipeline",
+  "dxapi": "1.0.0",
+  "version": "0.0.1",
+  "inputSpec": [
+    {
+      "name": "sampleID",
+      "label": "Sample ID",
+      "class": "string",
+      "optional": false,
+      "help": ""
+    },
+    {
+      "name": "fastqR1",
+      "label": "Read 1 fastq (gzipped)",
+      "class": "file",
+      "optional": false,
+      "patterns": ["*.fastq.gz","*.fq.gz"],
+      "help": "",
+      "stream": true
+    },
+    {
+      "name": "fastqR2",
+      "label": "Read 2 fastq (gzipped)",
+      "class": "file",
+      "optional": false,
+      "patterns": ["*.fastq.gz","*.fq.gz"],
+      "help": "",
+      "stream": true
+    },
+    {
+      "name": "ref",
+      "label": "Reference for bwa-mem (gzipped tarball)",
+      "class": "file",
+      "optional": false,
+      "patterns": ["*.bwa-index.tar.gz"],
+      "help": "",
+      "suggestions": [
+        {
+            "project": "project-BQpp3Y804Y0xbyG4GJPQ01xv",
+            "path": "/",
+            "region": "aws:us-east-1",
+            "name": "Reference Genome Files: AWS US (East)"
+        }
+      ],
+      "stream": true
+    },
+    {
+      "name": "fastaIn",
+      "label": "Reference fasta",
+      "class": "file",
+      "optional": false,
+      "patterns": ["*.fa.gz", "*.fasta.gz"],
+      "help": "",
+      "suggestions": [
+        {
+            "name": "DNAnexus Reference Genomes: AWS US-east",
+            "project": "project-BQpp3Y804Y0xbyG4GJPQ01xv",
+            "path": "/"
+        }
+      ]
+    },
+    {
+      "name": "knownVariants",
+      "label": "Known variants (gzipped)",
+      "class": "array:file",
+      "optional": false,
+      "patterns": ["*.vcf.gz"],
+      "help": "",
+      "suggestions": [
+        {
+            "project": "project-B6JG85Z2J35vb6Z7pQ9Q02j8",
+            "path": "/gatk.resources.b37",
+            "name": "GRCh37/hs37d5/b37 (1000G Phase I/II) [tick one dbSNP and both indel files]: AWS US-east"
+        },
+        {
+            "project": "project-B6JG85Z2J35vb6Z7pQ9Q02j8",
+            "path": "/gatk.resources.hg19",
+            "name": "UCSC hg19 [tick one dbSNP and both indel files]: AWS US-east"
+        },
+        {
+            "project": "project-B6JG85Z2J35vb6Z7pQ9Q02j8",
+            "path": "/gatk.resources.GRCh38",
+            "name": "GRCh38/hg38 [tick one dbSNP and both indel files]: AWS US-east"
+        }
+      ]
+    },
+    {
+      "name": "dbsnp",
+      "label": "dbSNP (gzipped)",
+      "class": "file",
+      "optional": false,
+      "patterns": ["*.vcf.gz"],
+      "help": "",
+      "suggestions": [
+        {
+            "project": "project-B6JG85Z2J35vb6Z7pQ9Q02j8",
+            "path": "/gatk.resources.b37",
+            "name": "GRCh37/hs37d5/b37 (1000G Phase I/II) [tick one dbSNP and both indel files]: AWS US-east"
+        },
+        {
+            "project": "project-B6JG85Z2J35vb6Z7pQ9Q02j8",
+            "path": "/gatk.resources.hg19",
+            "name": "UCSC hg19 [tick one dbSNP and both indel files]: AWS US-east"
+        },
+        {
+            "project": "project-B6JG85Z2J35vb6Z7pQ9Q02j8",
+            "path": "/gatk.resources.GRCh38",
+            "name": "GRCh38/hg38 [tick one dbSNP and both indel files]: AWS US-east"
+        }
+      ]
+    }
+  ],
+  "outputSpec": [
+    {
+      "name": "vcf",
+      "label": "Variant call file",
+      "class": "file",
+      "patterns": ["*.vcf.gz"],
+      "help": ""
+    },
+    {
+      "name": "tbi",
+      "label": "Index of vcf",
+      "class": "file",
+      "patterns": ["*.vcf.gz.tbi"],
+      "help": ""
+    },
+    {
+      "name": "intermediate_tar",
+      "label": "Tarball of intermediate outputs",
+      "class": "file",
+      "patterns": ["output.tar.gz"],
+      "help": ""
+    },
+    {
+      "name": "report",
+      "label": "Nextflow Report",
+      "class": "file",
+      "patterns": ["report.html"],
+      "help": ""
+    },
+    {
+      "name": "dag",
+      "label": "Nextflow DAG",
+      "class": "file",
+      "patterns": ["dag.png"],
+      "help": ""
+    }
+  ],
+  "runSpec": {
+    "timeoutPolicy": {
+      "*": {
+        "hours": 24
+      }
+    },
+    "interpreter": "bash",
+    "file": "src/nf_haplotypecaller.sh",
+    "distribution": "Ubuntu",
+    "release": "20.04",
+    "version": "0",
+    "execDepends": [
+      {"name": "default-jre", "package_manager": "apt"},
+      {"name": "graphviz", "package_manager": "apt"}
+    ]
+  },
+  "access": {
+    "network": [
+      "*"
+    ],
+    "project": "CONTRIBUTE"
+  },
+  "regionalOptions": {
+    "aws:us-east-1": {
+      "systemRequirements": {
+        "*": {
+          "instanceType": "mem2_ssd1_v2_x48"
+        }
+      }
+    }
+  }
+}
